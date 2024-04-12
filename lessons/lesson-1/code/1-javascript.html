@@ -60,6 +60,47 @@
         return value ** index;
     });
     console.log(arr1);
+
+    // 优化前
+    // function add(test1, test2) {
+    //     console.log(test1, test2);
+    //     if (test1 === undefined) {
+    //         test1 = 1;
+    //     }
+    //     if (test2 === undefined) {
+    //         test2 = 2;
+    //     }
+    //     return test1 + test2;
+    // }
+    // 优化后
+    add = (test1 = 1, test2 = 2) => test1 + test2;
+    console.log(add(3, 4));
+
+    const map1 = {
+            title: 'DevPoint',
+        },
+        map2 = {
+            title: 'DevPoint new',
+            info: 'Develop',
+        };
+    const newMap = {...map2, ...map1};
+    console.log(newMap); // { title: 'DevPoint', info: 'Develop' }
+
+    const greet = 'Hello', name = 'Tom';
+    console.log(greet + ', ' + name + '!');
+    console.log(`${greet}, ${name}1`);
+
+    let s1 = function () {
+        
+    };
+    let s2 = function () {
+        
+    };
+    // 优化前
+    let obj1 = {s1: s1, s2: s2};
+    // 优化后
+    let obj2 = {s1, s2};
+    console.log(obj2.s1, obj2.s2);
 </script>
 </body>
 </html>
