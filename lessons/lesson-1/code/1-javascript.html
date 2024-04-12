@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascript</title>
+</head>
+<body>
+<script>
+    const x = 100;
+    // let test = x < 10 ? true : false;
+    let test = !(x > 10);
+    console.log(test);
+
+    // const x = 300;
+    const test2 = x > 100 ? 'greater 100' : (x < 50 ? 'less 50' : 'between 50 and 100');
+    console.log(test2); // javascript google style
+
+    let [t1, t2, t3] = [1, 2, 3];
+    console.log(t1, t2, t3);
+
+    let test3 = 3;
+    test3 = test3 * 10;
+    test3 *= 10; // 二元赋值运算符
+
+    let test4 = NaN;
+    // false null false undefined 0 +0 -0 '' "" NaN
+    if (test4) {
+        // ...
+    }
+
+    let test5 = 0;
+    const callMethod = () => {
+    };
+    // 优化前
+    if (!test5) {
+        callMethod();
+    }
+    // 优化后 短路
+    test5 && callMethod(); // &&: true && true = true ||: false || false = false
+    test5 || callMethod();
+
+    const arr = [1, 2, 3];
+    for (let i = 0; i < arr.length; i++) {
+        console.log(i, arr[i]);
+    }
+
+    for (const arrKey in arr) {
+        console.log(arrKey, arr[arrKey]);
+    }
+
+    for (const number of arr) {
+        console.log(number);
+    }
+
+    arr.forEach((value, index, array) => {
+        console.log(value, index, array);
+    })
+
+    const arr1 = arr.map((value, index, array) => {
+        return value ** index;
+    });
+    console.log(arr1);
+</script>
+</body>
+</html>
