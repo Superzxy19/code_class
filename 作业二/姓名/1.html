@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实验一</title>
+    <style>
+        /* 占位符样式 */
+        .placeholder {
+            background-color: #f0f0f0;
+            width: 100%;
+            height: 300px;
+            /* 设置占位符的高度 */
+        }
+
+        /* 图片样式 */
+        .lazy {
+            width: 33.33%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 图片占位符 -->
+    <div class="placeholder"></div>
+
+    <!-- 需要延迟加载的图片 -->
+    <img class="lazy" data-src="images/image1.jpg" alt="图片 1">
+    <img class="lazy" data-src="images/image2.jpg" alt="图片 2">
+    <img class="lazy" data-src="images/image3.jpg" alt="图片 3">
+    <img class="lazy" data-src="images/image4.jpg" alt="图片 4">
+    <img class="lazy" data-src="images/image5.jpg" alt="图片 5">
+    <img class="lazy" data-src="images/image6.jpg" alt="图片 6">
+    <img class="lazy" data-src="images/image7.jpg" alt="图片 7">
+    <img class="lazy" data-src="images/image8.jpg" alt="图片 8">
+    <img class="lazy" data-src="images/image9.jpg" alt="图片 9">
+    <img class="lazy" data-src="images/image10.jpg" alt="图片 10">
+
+    <script>
+        // Intersection Observer 配置
+        const config = {
+            rootMargin: '0px',
+            threshold: 0.5 // 根据需要调整阈值
+        };
+
+        // 延迟加载图片
+        function lazyLoadImages() {
+            const images = document.querySelectorAll('.lazy');
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        const src = img.getAttribute('data-src');
+                        if (src) {
+                            img.src = src;
+                            img.removeAttribute('data-src');
+                            observer.unobserve(img); // 图片加载后停止观察
+                        }
+                    }
+                });
+            }, config);
+
+            images.forEach(image => {
+                observer.observe(image);
+            });
+        }
+
+        // 初始调用 lazyLoadImages
+        lazyLoadImages();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>实验三</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+    }
+    .section {
+        margin-bottom: 50px;
+    }
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: #007bff;
+        margin: 20px;
+    }
+</style>
+</head>
+<body>
+    <h1>实验三</h1>
+    <div class="section">
+        <h2>一：CDN相关内容总结</h2>
+        <p>CDN（Content Delivery Network）是指内容分发网络，是一种构建在现有网络基础上的网络架构，旨在提高网站的访问速度和用户体验。CDN通过将网站的静态资源（如图片、CSS、JavaScript等）分布到全球各地的服务器上，并根据用户的位置选择最近的服务器进行内容的快速传输，从而加快网页加载速度。</p>
+        <p>CDN的主要优势包括：</p>
+        <ul>
+            <li>提高网站的访问速度</li>
+            <li>降低服务器负载</li>
+            <li>提高网站的可靠性和稳定性</li>
+            <li>节省带宽成本</li>
+        </ul>
+    </div>
+    
+    <div class="section">
+        <h2>二：Animate.css的使用</h2>
+        <p>Animate.css是一个轻量级的CSS动画库，提供了多种预定义的动画效果，可以方便地为网页元素添加动画效果，使页面更加生动活泼。</p>
+        <p>你可以通过以下步骤来使用Animate.css：</p>
+        <ol>
+            <li>引入Animate.css文件：<br>
+                <code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css"&gt;</code>
+            </li>
+            <li>为需要添加动画效果的元素添加Animate.css中提供的类名，如：<br>
+                <code>&lt;div class="animate__animated animate__bounce"&gt;&lt;/div&gt;</code>
+            </li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>三：实现Animate.css中的动画效果</h2>
+        <div class="box animate__animated animate__bounce animate__infinite"></div>
+        <div class="box animate__animated animate__flip animate__infinite"></div>
+        <div class="box animate__animated animate__fadeIn animate__infinite"></div>
+    </div>
+
+</body>
+</html>
